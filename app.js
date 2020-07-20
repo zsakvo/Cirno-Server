@@ -6,13 +6,14 @@ const hbooker = require("./routers/hbooker");
 const fs = require("fs");
 
 //读取 tokens
+allTokens = {};
 
 fs.existsSync(".token")
   ? () => {
       let token = fs.readFileSync(".token", "utf8");
-      global.token = JSON.parse(token);
+      allTokens = JSON.parse(token);
     }
-  : (global.token = {});
+  : (allTokens = {});
 
 app.use(bodyParser());
 
