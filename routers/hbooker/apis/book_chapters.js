@@ -44,7 +44,7 @@ let book_chapters = async function (book_id) {
     result.data = chapters;
   } else {
     result.success = false;
-    result.tip = division_res.tip;
+    result.tip = divisions_res.tip;
   }
   return result;
 };
