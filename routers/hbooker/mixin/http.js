@@ -1,7 +1,7 @@
-const parse = require("../mixin/parse-res");
+const parse = require("./parse_res");
 const get = require("../../../libs/http").get;
 const post = require("../../../libs/http").post;
-const fix = require("../mixin/fix-param");
+const fix = require("./fix_param");
 let getHbooker = function (options) {
   options.url = fix.url + options.url;
   options.para = Object.assign({}, options.para, fix.params, allTokens.hbooker);
