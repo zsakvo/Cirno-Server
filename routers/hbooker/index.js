@@ -4,6 +4,8 @@ let hbooker = new Router();
 const login = require("./apis/login");
 const bookshelves = require("./apis/bookshelves");
 
+// allTokens.hbooker ? null : (allTokens.hbooker = {});
+
 hbooker
   .post("/login", async (ctx) => {
     let postData = ctx.request.body;

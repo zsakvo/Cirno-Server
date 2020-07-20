@@ -1,18 +1,15 @@
 const parse = require("../mixin/parse-res");
-const get = require("../../../libs/http").get;
+const get = require("../mixin/http").getHbooker;
 const fix = require("../mixin/fix-param");
 const fs = require("fs");
 
 let login = async function (name, passwd) {
   let res = await get({
     url: fix.url + "/signup/login",
-    para: Object.assign(
-      {
-        login_name: name,
-        passwd: passwd,
-      },
-      fix.params
-    ),
+    para: {
+      login_name: name,
+      passwd: passwd,
+    },
   });
   let clearRes = parse(res);
   let token = {};
