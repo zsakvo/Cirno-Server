@@ -1,4 +1,5 @@
 const parse = require("./parse_res");
+const qs = require("qs");
 const get = require("../../../libs/http").get;
 const post = require("../../../libs/http").post;
 const fix = require("./fix_param");
@@ -35,7 +36,9 @@ let getHbooker = function (options) {
 
 let postHbooker = function (options) {
   options.url = fix.url + options.url;
-  options.body = Object.assign({}, options.body, fix.params, allTokens.hbooker);
+  let json = Object.assign({}, options.body, fix.params, allTokens.hbooker);
+  let formData = qs.stringify(json);
+  options.body = formData;
   return post(options).then(
     (res) => {
       let clearRes = parse(res);
