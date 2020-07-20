@@ -20,7 +20,8 @@ let login = async function (name, passwd) {
     token.success = true;
     token.login_token = clearRes.data.login_token;
     token.account = clearRes.data.reader_info.account;
-    fs.writeFileSync(__dirname + "/.token", JSON.stringify(token), "utf8");
+    global.token.hbooker = token;
+    fs.writeFileSync(".token", JSON.stringify({ hbooker: token }), "utf8");
   } else {
     token.success = false;
     token.tip = clearRes.tip;

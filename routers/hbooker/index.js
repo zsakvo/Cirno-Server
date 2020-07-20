@@ -2,10 +2,12 @@ const Router = require("koa-router");
 let hbooker = new Router();
 
 const login = require("./apis/login");
+const bookshelves = require("./apis/bookshelves");
 
 hbooker
   .get("/bookshelves", async (ctx) => {
-    ctx.body = "404 page!";
+    let res = await bookshelves();
+    ctx.body = res;
   })
   .post("/login", async (ctx) => {
     let postData = ctx.request.body;

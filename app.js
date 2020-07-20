@@ -5,6 +5,15 @@ const bodyParser = require("koa-bodyparser");
 
 const hbooker = require("./routers/hbooker");
 
+const fs = require("fs");
+global.token = {};
+fs.existsSync(".token")
+  ? () => {
+      let token = fs.readFileSync(".token", "utf8");
+      global.token = JSON.parse(token);
+    }
+  : null;
+
 app.use(bodyParser());
 
 //装载子路由
