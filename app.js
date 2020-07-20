@@ -3,7 +3,7 @@ const app = new Koa();
 const Router = require("koa-router");
 const bodyParser = require("koa-bodyparser");
 
-const hbooker = require("./routers/hbooker/apis");
+const hbooker = require("./routers/hbooker");
 
 app.use(bodyParser());
 
