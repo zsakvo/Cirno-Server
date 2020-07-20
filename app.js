@@ -2,17 +2,17 @@ const Koa = require("koa");
 const app = new Koa();
 const Router = require("koa-router");
 const bodyParser = require("koa-bodyparser");
-
 const hbooker = require("./routers/hbooker");
-
 const fs = require("fs");
-global.token = {};
+
+//读取 tokens
+
 fs.existsSync(".token")
   ? () => {
       let token = fs.readFileSync(".token", "utf8");
       global.token = JSON.parse(token);
     }
-  : null;
+  : (global.token = {});
 
 app.use(bodyParser());
 
@@ -27,3 +27,5 @@ app.use(router.routes()).use(router.allowedMethods());
 app.listen(9096, () => {
   console.log("route-use-middleware is starting at port 9096");
 });
+
+module.exports = app;
