@@ -7,6 +7,7 @@ const fs = require("fs");
 
 //允许跨域
 app.use(cors());
+app.use(bodyParser());
 
 //读取 tokens
 allTokens = {};
@@ -19,7 +20,6 @@ if (tokenExist) {
 }
 
 const hbooker = require("./routers/hbooker");
-app.use(bodyParser());
 
 //装载子路由
 let router = new Router();
@@ -30,7 +30,7 @@ app.use(router.routes()).use(router.allowedMethods());
 
 //开始监听
 app.listen(9096, () => {
-  console.log("route-use-middleware is starting at port 9096");
+  console.log("starting at port 9096");
 });
 
 module.exports = app;
