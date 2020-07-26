@@ -57,7 +57,8 @@ hbooker
     let ctx_query = ctx.query;
     let res = await tsukkomi_list(
       ctx_query["chapter_id"],
-      ctx_query["paragraph_index"]
+      ctx_query["paragraph_index"],
+      ctx_query["page"]
     );
     ctx.body = res;
   });
