@@ -7,7 +7,7 @@ let add_tsukkomi = async function (
   tsukkomi_content
 ) {
   let res = await post({
-    url: "/chapter/like_tsukkomi",
+    url: "/chapter/add_tsukkomi",
     para: {
       book_id: book_id,
       chapter_id: chapter_id,
