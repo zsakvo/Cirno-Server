@@ -39,7 +39,6 @@ let book_chapters = async function (book_id) {
         break;
       }
     }
-    console.log(chapters);
     result.success = true;
     result.data = chapters;
   } else {

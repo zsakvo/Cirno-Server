@@ -74,7 +74,7 @@ function post(obj) {
   return new Promise((resolve, reject) => {
     axios
       .post(options.url, options.body, {
-        headers: options.header,
+        headers: options.headers,
         params: options.para,
         timeout: options.timeout,
         withCredentials: options.withCredentials,

@@ -10,6 +10,7 @@ const chapter_content = require("./apis/chapter_content");
 const chapter_buy = require("./apis/chapter_buy");
 const tsukkomi_num = require("./apis/tsukkomi_num");
 const tsukkomi_list = require("./apis/tsukkomi_list");
+const chapter_ifm = require("./apis/chapter_ifm");
 
 hbooker
   .post("/login", async (ctx) => {
@@ -60,6 +61,11 @@ hbooker
       ctx_query["paragraph_index"],
       ctx_query["page"]
     );
+    ctx.body = res;
+  })
+  .get("/chapter_ifm", async (ctx) => {
+    let ctx_query = ctx.query;
+    let res = await chapter_ifm(ctx_query["chapter_id"]);
     ctx.body = res;
   });
 

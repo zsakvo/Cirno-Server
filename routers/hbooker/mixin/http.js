@@ -10,7 +10,7 @@ let getHbooker = function (options) {
     (res) => {
       let clearRes = parse(res);
       let result = {};
-      if (clearRes.code === 100000) {
+      if (clearRes.code == 100000) {
         result.success = true;
         if (options.url === fix.url + "/signup/login") {
           result.login_token = clearRes.data.login_token;
@@ -39,11 +39,14 @@ let postHbooker = function (options) {
   let json = Object.assign({}, options.body, fix.params, allTokens.hbooker);
   let formData = qs.stringify(json);
   options.body = formData;
+  options.headers = {
+    "User-Agent": "Android  com.kuangxiangciweimao.novel  fake_server_by_koa",
+  };
   return post(options).then(
     (res) => {
       let clearRes = parse(res);
       let result = {};
-      if (clearRes.code === 100000) {
+      if (clearRes.code == 100000) {
         result.success = true;
         result.data = clearRes.data;
         return result;

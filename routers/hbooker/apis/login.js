@@ -10,7 +10,6 @@ let login = async function (name, passwd) {
     },
   });
   delete res.success;
-  console.log(res);
   fs.writeFileSync(".token", JSON.stringify({ hbooker: res }), "utf8");
   allTokens.hbooker = res;
   return res;
