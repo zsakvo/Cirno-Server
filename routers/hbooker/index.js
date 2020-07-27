@@ -11,6 +11,8 @@ const chapter_buy = require("./apis/chapter_buy");
 const tsukkomi_num = require("./apis/tsukkomi_num");
 const tsukkomi_list = require("./apis/tsukkomi_list");
 const chapter_ifm = require("./apis/chapter_ifm");
+const like_tsukkomi = require("./apis/like_tsukkomi");
+const add_tsukkomi = require("./apis/add_tsukkomi");
 
 hbooker
   .post("/login", async (ctx) => {
@@ -66,6 +68,25 @@ hbooker
   .get("/chapter_ifm", async (ctx) => {
     let ctx_query = ctx.query;
     let res = await chapter_ifm(ctx_query["chapter_id"]);
+    ctx.body = res;
+  })
+  .get("/like_tsukkomi", async (ctx) => {
+    let ctx_query = ctx.query;
+    let res = await like_tsukkomi(ctx_query["tsukkomi_id"]);
+    ctx.body = res;
+  })
+  .post("/add_tsukkomi", async (ctx) => {
+    let postData = ctx.request.body;
+    let book_id = postData.book_id;
+    let chapter_id = postData.chapter_id;
+    let paragraph_index = postData.paragraph_index;
+    let tsukkomi_content = postData.tsukkomi_content;
+    let res = await add_tsukkomi(
+      book_id,
+      chapter_id,
+      paragraph_index,
+      tsukkomi_content
+    );
     ctx.body = res;
   });
 
