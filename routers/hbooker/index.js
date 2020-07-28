@@ -12,6 +12,7 @@ const tsukkomi_num = require("./apis/tsukkomi_num");
 const tsukkomi_list = require("./apis/tsukkomi_list");
 const chapter_ifm = require("./apis/chapter_ifm");
 const like_tsukkomi = require("./apis/like_tsukkomi");
+const unlike_tsukkomi = require("./apis/unlike_tsukkomi");
 const add_tsukkomi = require("./apis/add_tsukkomi");
 
 hbooker
@@ -73,6 +74,11 @@ hbooker
   .get("/like_tsukkomi", async (ctx) => {
     let ctx_query = ctx.query;
     let res = await like_tsukkomi(ctx_query["tsukkomi_id"]);
+    ctx.body = res;
+  })
+  .get("/unlike_tsukkomi", async (ctx) => {
+    let ctx_query = ctx.query;
+    let res = await unlike_tsukkomi(ctx_query["tsukkomi_id"]);
     ctx.body = res;
   })
   .post("/add_tsukkomi", async (ctx) => {
