@@ -14,6 +14,7 @@ const chapter_ifm = require("./apis/chapter_ifm");
 const like_tsukkomi = require("./apis/like_tsukkomi");
 const unlike_tsukkomi = require("./apis/unlike_tsukkomi");
 const add_tsukkomi = require("./apis/add_tsukkomi");
+const my_info = require("./apis/my_info");
 
 hbooker
   .post("/login", async (ctx) => {
@@ -93,6 +94,11 @@ hbooker
       paragraph_index,
       tsukkomi_content
     );
+    ctx.body = res;
+  })
+  .get("/my_info", async (ctx) => {
+    let ctx_query = ctx.query;
+    let res = await my_info(ctx_query["reader_id"]);
     ctx.body = res;
   });
 
