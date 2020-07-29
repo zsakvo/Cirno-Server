@@ -97,8 +97,7 @@ hbooker
     ctx.body = res;
   })
   .get("/my_info", async (ctx) => {
-    let ctx_query = ctx.query;
-    let res = await my_info(ctx_query["reader_id"]);
+    let res = await my_info();
     ctx.body = res;
   });
 

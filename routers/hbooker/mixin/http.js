@@ -15,6 +15,7 @@ let getHbooker = function (options) {
         if (options.url === fix.url + "/signup/login") {
           result.login_token = clearRes.data.login_token;
           result.account = clearRes.data.reader_info.account;
+          result.reader_id = clearRes.data.reader_info.reader_id;
         } else {
           result.data = clearRes.data;
         }
