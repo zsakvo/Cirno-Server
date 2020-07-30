@@ -23,6 +23,7 @@ let getHbooker = function (options) {
       } else {
         result.success = false;
         result.tip = clearRes.tip;
+        result.code = clearRes.code;
         return result;
       }
     },
@@ -30,6 +31,7 @@ let getHbooker = function (options) {
       let result = {};
       result.success = false;
       result.tip = err.message;
+      result.code = 0;
       return result;
     }
   );
@@ -54,6 +56,7 @@ let postHbooker = function (options) {
       } else {
         result.success = false;
         result.tip = clearRes.tip;
+        result.code = clearRes.code;
         return result;
       }
     },
@@ -61,6 +64,7 @@ let postHbooker = function (options) {
       let result = {};
       result.success = false;
       result.tip = err.message;
+      result.code = 0;
       return result;
     }
   );
