@@ -9,9 +9,16 @@ let login = async function (name, passwd) {
       passwd: passwd,
     },
   });
-  delete res.success;
-  fs.writeFileSync(".token", JSON.stringify({ hbooker: res }), "utf8");
-  allTokens.hbooker = res;
+  // delete res.success;
+  if (res.success) {
+    delete res.success;
+    fs.writeFileSync(".token", JSON.stringify({ hbooker: res }), "utf8");
+    allTokens.hbooker = res;
+    res.success = true;
+  } else {
+    fs.writeFileSync(".token", JSON.stringify({ hbooker: {} }), "utf8");
+    allTokens.hbooker = {};
+  }
   return res;
 };
 
