@@ -4,7 +4,7 @@
   "description": "a wrapper for hbooker app interface ",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pkg": "pkg . --out-path=dist/"
   },
   "keywords": [
     "hbooker"
@@ -17,7 +17,28 @@
     "koa": "^2.13.0",
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^9.1.0",
+    "koa-static": "^5.0.0",
     "koa2-cors": "^2.0.6",
+    "open": "^7.1.0",
     "qs": "^6.9.4"
+  },
+  "bin": "./app.js",
+  "pkg": {
+    "scripts": [
+      "./static/js/*.js"
+    ],
+    "assets": [
+      "./static/index.html",
+      "./static/favicon.ico",
+      "./static/robots.txt",
+      "./static/css/*",
+      "./static/fonts/*",
+      "./static/img/*"
+    ],
+    "targets": [
+      "node8-macos-x64",
+      "node8-win-x64",
+      "node8-linux-x64"
+    ]
   }
 }

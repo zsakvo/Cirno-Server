@@ -1,5 +1,8 @@
 .DS_Store
 node_modules
+static
+app
+dist/
 
 .token
 demos
