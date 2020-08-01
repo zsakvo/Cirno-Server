@@ -17,6 +17,8 @@ const add_tsukkomi = require("./apis/add_tsukkomi");
 const my_info = require("./apis/my_info");
 const give_recommend = require("./apis/give_recommend");
 const set_last_read = require("./apis/set_last_read");
+const sign_record = require("./apis/sign_record");
+const sign_recommend = require("./apis/sign_recommend");
 
 hbooker
   .post("/login", async (ctx) => {
@@ -113,6 +115,14 @@ hbooker
       ctx_query["book_id"],
       ctx_query["chapter_id"]
     );
+    ctx.body = res;
+  })
+  .get("/sign_record", async (ctx) => {
+    let res = await sign_record();
+    ctx.body = res;
+  })
+  .get("/sign_recommend", async (ctx) => {
+    let res = await sign_recommend();
     ctx.body = res;
   });
 
