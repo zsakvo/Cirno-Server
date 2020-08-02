@@ -13,6 +13,8 @@ After login it will generate a file named `.token`, don't delete or modify it.
 ## Usage
 
 ```shell
+mkdir static
+copy dist files to static
 yarn
 node app.js    // run the server
 yarn pkg    //pack it to an executable file
